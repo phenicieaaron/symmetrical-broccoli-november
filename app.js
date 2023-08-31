@@ -10,13 +10,23 @@ app.get('/aaron', function (req, res) {
   res.render('index', {'myVariableClient' : myVariableServer} );
 })
 
+app.post('/postClientData', function (req, res) {
+ 
+  console.log("body: ", req.body);
+  console.log("params: ", req.params['userName']);
+  
+  myVariableServer = "now!!! new we\'ve got new stuff"
+  
+  res.render('index', {'myVariableClient' : myVariableServer} );
+})
+
 app.get('/', function (req, res) {
   res.send('Hello World From Express!')
 })
 
-app.get('/whatever', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
-})
+// app.get('/whatever', function (req, res) {
+//   res.sendFile(__dirname + '/index.html');
+// })
 
 
 
