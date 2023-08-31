@@ -18,8 +18,9 @@ app.post('/postClientData', function (req, res) {
   console.log("user name:" , req.body.userName);
   // console.log("params: ", req.params['userName']);
   
-  myVariableServer = "now!!! new we\'ve got new stuff"
-  
+  // myVariableServer = "now!!! new we\'ve got new stuff"
+  myVariableServer = req.body.userName
+
   res.render('index', {'myVariableClient' : myVariableServer} );
 })
 
