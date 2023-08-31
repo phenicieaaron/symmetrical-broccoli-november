@@ -1,8 +1,10 @@
 const express = require('express')
 const app = express()
+const bodyParser = require('body-parser')
 const port = (process.env.PORT || 3000)
 
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: true }));
 
 let myVariableServer = 'soft coded data'
 
@@ -13,7 +15,8 @@ app.get('/aaron', function (req, res) {
 app.post('/postClientData', function (req, res) {
  
   console.log("body: ", req.body);
-  console.log("params: ", req.params['userName']);
+  console.log("user name:" , req.body.userName);
+  // console.log("params: ", req.params['userName']);
   
   myVariableServer = "now!!! new we\'ve got new stuff"
   
